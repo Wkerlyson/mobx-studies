@@ -9,26 +9,15 @@ part of 'controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$Controller on _ControllerBase, Store {
-  final _$valueAtom = Atom(name: '_ControllerBase.value');
+  Computed<bool> _$isValidComputed;
 
   @override
-  int get value {
-    _$valueAtom.context.enforceReadPolicy(_$valueAtom);
-    _$valueAtom.reportObserved();
-    return super.value;
-  }
-
-  @override
-  set value(int value) {
-    _$valueAtom.context.conditionallyRunInAction(() {
-      super.value = value;
-      _$valueAtom.reportChanged();
-    }, _$valueAtom, name: '${_$valueAtom.name}_set');
-  }
+  bool get isValid =>
+      (_$isValidComputed ??= Computed<bool>(() => super.isValid)).value;
 
   @override
   String toString() {
-    final string = 'value: ${value.toString()}';
+    final string = 'isValid: ${isValid.toString()}';
     return '{$string}';
   }
 }

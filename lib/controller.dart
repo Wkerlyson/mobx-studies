@@ -6,10 +6,21 @@ class Controller = ControllerBase with _$Controller;
 
 abstract class ControllerBase with Store {
   @observable
-  int counter = 0;
+  String name = '';
+
+  @observable
+  String lastName = '';
+
+  @computed
+  String get fullName => '$name $lastName';
 
   @action
-  increment() {
-    counter++;
+  changeName(String name) {
+    this.name = name;
+  }
+
+  @action
+  changeLastName(String lastName) {
+    this.lastName = lastName;
   }
 }

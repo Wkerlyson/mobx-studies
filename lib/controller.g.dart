@@ -8,67 +8,27 @@ part of 'controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$Controller on ControllerBase, Store {
-  final _$nameAtom = Atom(name: 'ControllerBase.name');
+mixin _$Controller on _ControllerBase, Store {
+  final _$valueAtom = Atom(name: '_ControllerBase.value');
 
   @override
-  String get name {
-    _$nameAtom.context.enforceReadPolicy(_$nameAtom);
-    _$nameAtom.reportObserved();
-    return super.name;
+  int get value {
+    _$valueAtom.context.enforceReadPolicy(_$valueAtom);
+    _$valueAtom.reportObserved();
+    return super.value;
   }
 
   @override
-  set name(String value) {
-    _$nameAtom.context.conditionallyRunInAction(() {
-      super.name = value;
-      _$nameAtom.reportChanged();
-    }, _$nameAtom, name: '${_$nameAtom.name}_set');
-  }
-
-  final _$lastNameAtom = Atom(name: 'ControllerBase.lastName');
-
-  @override
-  String get lastName {
-    _$lastNameAtom.context.enforceReadPolicy(_$lastNameAtom);
-    _$lastNameAtom.reportObserved();
-    return super.lastName;
-  }
-
-  @override
-  set lastName(String value) {
-    _$lastNameAtom.context.conditionallyRunInAction(() {
-      super.lastName = value;
-      _$lastNameAtom.reportChanged();
-    }, _$lastNameAtom, name: '${_$lastNameAtom.name}_set');
-  }
-
-  final _$ControllerBaseActionController =
-      ActionController(name: 'ControllerBase');
-
-  @override
-  dynamic changeName(String name) {
-    final _$actionInfo = _$ControllerBaseActionController.startAction();
-    try {
-      return super.changeName(name);
-    } finally {
-      _$ControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic changeLastName(String lastName) {
-    final _$actionInfo = _$ControllerBaseActionController.startAction();
-    try {
-      return super.changeLastName(lastName);
-    } finally {
-      _$ControllerBaseActionController.endAction(_$actionInfo);
-    }
+  set value(int value) {
+    _$valueAtom.context.conditionallyRunInAction(() {
+      super.value = value;
+      _$valueAtom.reportChanged();
+    }, _$valueAtom, name: '${_$valueAtom.name}_set');
   }
 
   @override
   String toString() {
-    final string = 'name: ${name.toString()},lastName: ${lastName.toString()}';
+    final string = 'value: ${value.toString()}';
     return '{$string}';
   }
 }
